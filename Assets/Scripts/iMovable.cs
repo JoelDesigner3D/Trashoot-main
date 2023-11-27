@@ -1,18 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class iMovable : MonoBehaviour
+public interface iMovable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void move(float value);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void rotate(float value);
 }
