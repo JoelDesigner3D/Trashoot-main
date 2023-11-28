@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class BulletController : MonoBehaviour, iExplosive
 {
 
     [SerializeField] private float forceMagnitude = 10f;
+
+    public void Explode()
+    {
+        Debug.Log("Big explosion !!!");
+        Destroy(gameObject);
+    }
 
     public void Fire()
     {
@@ -27,6 +33,15 @@ public class BulletController : MonoBehaviour
         {
             Debug.Log("Le projectile est en dehors de l'écran!");
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Trash"))
+        {
+            this.Explode();
+            Destroy(collision.gameObject);
         }
     }
 
