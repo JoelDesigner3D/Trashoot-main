@@ -7,11 +7,6 @@ public class BulletController : MonoBehaviour
 
     [SerializeField] private float forceMagnitude = 10f;
 
-
-    private float viewportWidth;
-    private float viewportHeight;
-
-
     public void Fire()
     {
         GetComponent<Rigidbody2D>().AddForce(transform.up * forceMagnitude, ForceMode2D.Impulse);
@@ -23,7 +18,7 @@ public class BulletController : MonoBehaviour
     }
 
 
-    private void FarFarAway()
+    private void FarFarAway() // ... a long time ago in a galaxy 
     {
         Vector3 worldPosition = transform.position;
         Vector3 viewportPosition = Camera.main.WorldToViewportPoint(worldPosition);
@@ -33,23 +28,7 @@ public class BulletController : MonoBehaviour
             Debug.Log("Le projectile est en dehors de l'écran!");
             Destroy(gameObject);
         }
-
-        /*
-        if (gameObject.transform.position.x > viewportWidth || gameObject.transform.position.y > viewportHeight)
-        {
-            
-        }
-        */
     }
-
-
-    void Start()
-    {
-        Camera mainCamera = Camera.main;
-        viewportWidth = mainCamera.rect.width;
-        viewportHeight = mainCamera.rect.height;
-    }
-
 
     private void Update()
     {
