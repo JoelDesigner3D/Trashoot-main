@@ -27,10 +27,11 @@ public class StarShipControlleur : MonoBehaviour, iMovable, iShooter
     public void Shoot()
     {
         if (readyForShoot) {
-            GameObject newBullet = Instantiate(bullet, this.transform.position, Quaternion.identity);
+            GameObject newBullet = Instantiate(bullet, bullet.transform.position, Quaternion.identity);
+            newBullet.transform.rotation = gameObject.transform.rotation;
+            //newBullet.transform.localScale = new Vector3(10,10,10) ;
 
-            newBullet.transform.position = bullet.transform.position;
-            newBullet.GetComponent<BulletController>().Shoot(gameObject);
+            newBullet.GetComponent<BulletController>().Fire();
             readyForShoot = false;
         }
     }

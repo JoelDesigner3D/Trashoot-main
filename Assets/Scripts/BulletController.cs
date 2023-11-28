@@ -2,36 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour, iMovable
+public class BulletController : MonoBehaviour
 {
 
-    [SerializeField] private float moveSpeed = 100f;
+    [SerializeField] private float forceMagnitude = 10f;
+
 
     private float viewportWidth;
     private float viewportHeight;
 
-    private Vector2 forceDirection = Vector2.right;
 
-
-    public void Shoot(GameObject starShip)
+    public void Fire()
     {
-        this.move(1);
-    }
-
-
-    public void move(float value)
-    {
-        float moveY = value * moveSpeed * Time.deltaTime;
-
-        float forceX = gameObject.transform.rotation.x * moveSpeed;
-        float forceY = gameObject.transform.rotation.y * moveSpeed;
-
-       // Vector3 forceDirection = this.transform.position - transform.position;
-
-        Vector2 forceVector = forceDirection.normalized * moveSpeed;
-
-        this.GetComponent<Rigidbody2D>().AddForce(forceVector);
-
+        GetComponent<Rigidbody2D>().AddForce(transform.up * forceMagnitude, ForceMode2D.Impulse);
     }
 
     public void rotate(float value)
@@ -42,10 +25,21 @@ public class BulletController : MonoBehaviour, iMovable
 
     private void FarFarAway()
     {
-        if (gameObject.transform.position.x > viewportWidth || gameObject.transform.position.y > viewportHeight)
+        Vector3 worldPosition = transform.position;
+        Vector3 viewportPosition = Camera.main.WorldToViewportPoint(worldPosition);
+
+        if (viewportPosition.x < 0 || viewportPosition.x > 1 || viewportPosition.y < 0 || viewportPosition.y > 1)
         {
+            Debug.Log("Le projectile est en dehors de l'écran!");
             Destroy(gameObject);
         }
+
+        /*
+        if (gameObject.transform.position.x > viewportWidth || gameObject.transform.position.y > viewportHeight)
+        {
+            
+        }
+        */
     }
 
 
