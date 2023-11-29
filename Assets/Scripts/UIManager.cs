@@ -26,5 +26,11 @@ public class UIManager : MonoBehaviour
         //TODO
     }
 
+    public void Replay()
+    {
+        DisplayGameOverPanel(false);
+        GameManager.Instance.Replay();
+    }
+
 
 }

@@ -20,6 +20,8 @@ public class StarShipControlleur : MonoBehaviour, iMovable, iShooter, iExplosive
         ParticleSystem newExplosion = Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
         newExplosion.Play();
 
+        GameManager.Instance.WaitForGameOver();
+
         gameObject.SetActive(false);
     }
 
@@ -40,7 +42,6 @@ public class StarShipControlleur : MonoBehaviour, iMovable, iShooter, iExplosive
         if (readyForShoot && bullet != null) {
             GameObject newBullet = Instantiate(bullet, bullet.transform.position, Quaternion.identity);
             newBullet.transform.rotation = gameObject.transform.rotation;
-            //newBullet.transform.localScale = new Vector3(10,10,10) ;
 
             newBullet.GetComponent<BulletController>().Fire();
             readyForShoot = false;
