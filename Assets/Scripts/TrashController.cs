@@ -6,6 +6,8 @@ public class TrashController : MonoBehaviour, iExplosive
 {
 
     [SerializeField] private float forceMagnitude = 1f;
+    [SerializeField] private ParticleSystem explosion;
+
     private Rigidbody2D rb;
 
     void Start()
@@ -27,14 +29,17 @@ public class TrashController : MonoBehaviour, iExplosive
     {
         if (collision.CompareTag("StarShip"))
         {
+            collision.gameObject.GetComponent<StarShipControlleur>().Explode();
             this.Explode();
-            Destroy(collision.gameObject);
         }
     }
 
 
     public void Explode()
     {
-        Destroy(gameObject);
+        ParticleSystem newExplosion = Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+        newExplosion.Play();
+
+        gameObject.SetActive(false);
     }
 }

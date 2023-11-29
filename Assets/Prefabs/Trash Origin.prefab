@@ -216,3 +216,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceMagnitude: 1
+  explosion: {fileID: 239904699247778883, guid: e701846bf7de44b24a3c55526b9f8429, type: 3}

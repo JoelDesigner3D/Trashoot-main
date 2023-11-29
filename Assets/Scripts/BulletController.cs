@@ -6,11 +6,11 @@ public class BulletController : MonoBehaviour, iExplosive
 {
 
     [SerializeField] private float forceMagnitude = 10f;
+    [SerializeField] private ParticleSystem explosion;
 
     public void Explode()
     {
-        Debug.Log("Big explosion !!!");
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public void Fire()
@@ -33,6 +33,7 @@ public class BulletController : MonoBehaviour, iExplosive
         {
             Debug.Log("Le projectile est en dehors de l'écran!");
             Destroy(gameObject);
+            // TODO respawn
         }
     }
 
@@ -40,8 +41,8 @@ public class BulletController : MonoBehaviour, iExplosive
     {
         if (collision.CompareTag("Trash"))
         {
+            collision.gameObject.GetComponent<TrashController>().Explode();
             this.Explode();
-            Destroy(collision.gameObject);
         }
     }
 

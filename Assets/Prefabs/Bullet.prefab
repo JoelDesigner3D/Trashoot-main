@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4319061695121865575}
   - component: {fileID: 1478878864466184098}
   - component: {fileID: 2263562835976955934}
+  - component: {fileID: 6833009303316610634}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceMagnitude: 10
+  explosion: {fileID: 239904699247778883, guid: e701846bf7de44b24a3c55526b9f8429, type: 3}
 --- !u!61 &2263562835976955934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -92,6 +94,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.17877409, y: 0.18428569}
   m_EdgeRadius: 0
+--- !u!50 &6833009303316610634
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6460899931515326538}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6853057534204971340
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,9 +16,11 @@ public class StarShipControlleur : MonoBehaviour, iMovable, iShooter, iExplosive
 
     public void Explode()
     {
-        Vector3 positionParticles = gameObject.transform.position;
-        explosion.transform.position = positionParticles;
-        explosion.Play();
+
+        ParticleSystem newExplosion = Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+        newExplosion.Play();
+
+        gameObject.SetActive(false);
     }
 
     public void move(float value)
