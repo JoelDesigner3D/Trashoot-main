@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrashController : MonoBehaviour
+public class TrashController : MonoBehaviour, iExplosive
 {
 
     [SerializeField] private float forceMagnitude = 1f;
@@ -22,8 +22,19 @@ public class TrashController : MonoBehaviour
         rb.AddForce(normalizedDirection * forceMagnitude, ForceMode2D.Impulse);
     }
 
-    void Update()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("StarShip"))
+        {
+            this.Explode();
+            Destroy(collision.gameObject);
+        }
+    }
+
+
+    public void Explode()
+    {
+        Destroy(gameObject);
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StarShipControlleur : MonoBehaviour, iMovable, iShooter
+public class StarShipControlleur : MonoBehaviour, iMovable, iShooter, iExplosive
 {
 
     [SerializeField] private float rotationSpeed = 100f;
@@ -10,7 +10,16 @@ public class StarShipControlleur : MonoBehaviour, iMovable, iShooter
 
     [SerializeField] private GameObject bullet;
 
+    [SerializeField] private ParticleSystem explosion;
+
     private bool readyForShoot = true;
+
+    public void Explode()
+    {
+        Vector3 positionParticles = gameObject.transform.position;
+        explosion.transform.position = positionParticles;
+        explosion.Play();
+    }
 
     public void move(float value)
     {
@@ -26,7 +35,7 @@ public class StarShipControlleur : MonoBehaviour, iMovable, iShooter
 
     public void Shoot()
     {
-        if (readyForShoot) {
+        if (readyForShoot && bullet != null) {
             GameObject newBullet = Instantiate(bullet, bullet.transform.position, Quaternion.identity);
             newBullet.transform.rotation = gameObject.transform.rotation;
             //newBullet.transform.localScale = new Vector3(10,10,10) ;
