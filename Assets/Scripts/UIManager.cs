@@ -12,14 +12,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private CanvasRenderer youWinPanel;
     [SerializeField] private CanvasRenderer scorePanel;
     [SerializeField] private TextMeshProUGUI scoreField;
-
-    private int globalScrore = 0;
-
-    public void OnTrashDestroyed(int score)
-    {
-        Debug.Log("OnTrashDestroyed triggered");
-        DisplayScore(score);
-    }
         
 
     public void DisplayGameOverPanel(bool visible)
@@ -42,9 +34,7 @@ public class UIManager : MonoBehaviour
 
     public void DisplayScore(int score)
     {
-        globalScrore += score;
-        scoreField.text = "Score : " + globalScrore;
-            Debug.Log("Score : "+ globalScrore);
+        scoreField.text = "Score : " + score;
     }
 
     public void Replay()

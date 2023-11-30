@@ -49,6 +49,7 @@ public class TrashController : MonoBehaviour, iExplosive
     public void Explode()
     {
         ScoreManager.Instance.AddScore(1);
+        //OnTrashDestroyed.Invoke(1);
 
         ParticleSystem newExplosion = Instantiate(explosionParticles, gameObject.transform.position, Quaternion.identity);
 

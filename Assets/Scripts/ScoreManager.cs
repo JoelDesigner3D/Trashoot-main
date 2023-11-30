@@ -6,8 +6,6 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
 
-    public IntEvent OnNewScore;
-
     void Awake()
     {
         if (Instance == null)
