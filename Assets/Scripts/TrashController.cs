@@ -8,7 +8,7 @@ public class TrashController : MonoBehaviour, iExplosive
     [SerializeField] private float forceMagnitude = 1f;
 
     [SerializeField] private ParticleSystem explosionParticles;
-    [SerializeField] private AudioSource explosionSound;
+    //[SerializeField] private AudioSource explosionSound;
 
 
     private Rigidbody2D rb;
@@ -41,8 +41,12 @@ public class TrashController : MonoBehaviour, iExplosive
     public void Explode()
     {
         ParticleSystem newExplosion = Instantiate(explosionParticles, gameObject.transform.position, Quaternion.identity);
+
+        SoundManager.Instance.playTrashExplosion();
+
         newExplosion.Play();
-        explosionSound.Play();
+
+
 
         gameObject.SetActive(false);
     }
