@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private CanvasRenderer gameOverPanel;
     [SerializeField] private CanvasRenderer newGamePanel;
+    [SerializeField] private CanvasRenderer youWinPanel;
 
     public void DisplayGameOverPanel(bool visible)
     {
@@ -21,6 +22,12 @@ public class UIManager : MonoBehaviour
     }
 
 
+    public void DisplayYouWinPanel(bool visible)
+    {
+        youWinPanel.gameObject.SetActive(visible);
+    }
+
+
     public void DisplayScorePanel(bool visible)
     {
         //TODO
@@ -29,6 +36,7 @@ public class UIManager : MonoBehaviour
     public void Replay()
     {
         DisplayGameOverPanel(false);
+        DisplayYouWinPanel(false);
         GameManager.Instance.Replay();
     }
 

@@ -216,4 +216,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceMagnitude: 1
-  explosion: {fileID: 239904699247778883, guid: e701846bf7de44b24a3c55526b9f8429, type: 3}
+  explosionParticles: {fileID: 239904699247778883, guid: e701846bf7de44b24a3c55526b9f8429, type: 3}
+  explosionSound: {fileID: 6645825731762210178, guid: 1ce3552b882a146fdbc736e435a2572f, type: 3}

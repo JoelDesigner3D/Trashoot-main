@@ -26,6 +26,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private UIManager uIManager;
 
+
+    public void OnTimeElapsed()
+    {
+        YouWin();
+    }
+
     public void WaitForGameOver() { 
         StartCoroutine(Wait());
     }
@@ -43,12 +49,19 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void YouWin()
+    {
+        uIManager.DisplayYouWinPanel(true);
+    }
+
+
     public void Replay()
     {
         //uIManager.DisplayNewGamePanel(true);
 
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
+
     }
 
 

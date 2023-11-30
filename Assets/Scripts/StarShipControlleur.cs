@@ -11,6 +11,7 @@ public class StarShipControlleur : MonoBehaviour, iMovable, iShooter, iExplosive
     [SerializeField] private GameObject bullet;
 
     [SerializeField] private ParticleSystem explosion;
+    [SerializeField] private AudioSource bigExplosion;
 
     private bool readyForShoot = true;
 
@@ -18,6 +19,7 @@ public class StarShipControlleur : MonoBehaviour, iMovable, iShooter, iExplosive
     {
 
         ParticleSystem newExplosion = Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+        bigExplosion.Play();
         newExplosion.Play();
 
         GameManager.Instance.WaitForGameOver();
