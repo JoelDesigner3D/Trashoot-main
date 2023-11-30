@@ -19,12 +19,14 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     //--------------------------------------------------------------
 
     [SerializeField] private UIManager uIManager;
+
+    private bool gameIsOver = false;
 
 
     public void OnTimeElapsed()
@@ -32,7 +34,10 @@ public class GameManager : MonoBehaviour
         YouWin();
     }
 
-    public void WaitForGameOver() { 
+    public void WaitForGameOver() {
+
+        gameIsOver = true;
+
         StartCoroutine(Wait());
     }
 
@@ -51,6 +56,11 @@ public class GameManager : MonoBehaviour
 
     public void YouWin()
     {
+        if (gameIsOver)
+        {
+            return;
+        }
+
         uIManager.DisplayYouWinPanel(true);
     }
 

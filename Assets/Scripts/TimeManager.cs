@@ -18,6 +18,24 @@ public class BoolEvent : UnityEvent<bool>
 
 public class TimeManager : MonoBehaviour
 {
+
+    public static TimeManager Instance;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        //DontDestroyOnLoad(gameObject);
+    }
+    //==================================
+
     [SerializeField] private float gameDuration = 30f;
 
     public BoolEvent OnTimeElapsed;
@@ -45,6 +63,12 @@ public class TimeManager : MonoBehaviour
     {
         yield return new WaitForSeconds(gameDuration);
         StopTimer();
+    }
+
+
+    public void CloseTimer()
+    {
+        StopCoroutine(Wait(gameDuration));
     }
 
 
