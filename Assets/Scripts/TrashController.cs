@@ -1,6 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class IntEvent : UnityEvent<int>
+{
+
+}
 
 public class TrashController : MonoBehaviour, iExplosive
 {
@@ -10,6 +17,7 @@ public class TrashController : MonoBehaviour, iExplosive
     [SerializeField] private ParticleSystem explosionParticles;
     //[SerializeField] private AudioSource explosionSound;
 
+    public IntEvent OnTrashDestroyed;
 
     private Rigidbody2D rb;
 
@@ -40,6 +48,8 @@ public class TrashController : MonoBehaviour, iExplosive
 
     public void Explode()
     {
+        ScoreManager.Instance.AddScore(1);
+
         ParticleSystem newExplosion = Instantiate(explosionParticles, gameObject.transform.position, Quaternion.identity);
 
         SoundManager.Instance.playTrashExplosion();

@@ -23,7 +23,8 @@ public class TrashPooling : Pool
         
         foreach (GameObject go in trashsReferences)
         {
-            if (!go.activeInHierarchy)
+            //if (!go.activeInHierarchy)
+            if (!go.activeSelf) 
             {
                 go.SetActive(true);
                 go.transform.position = position;

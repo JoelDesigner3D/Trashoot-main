@@ -25,9 +25,10 @@ public class TrashSpawner : MonoBehaviour
     */
 
     
-
+    
     void Update()
     {
+
 
         while (spawnPoints.Count > GameObject.FindGameObjectsWithTag("Trash").Length)
         {
@@ -39,4 +40,5 @@ public class TrashSpawner : MonoBehaviour
         }
 
     }
+    
 }

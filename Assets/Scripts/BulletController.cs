@@ -32,7 +32,7 @@ public class BulletController : MonoBehaviour, iExplosive
 
         if (viewportPosition.x < 0 || viewportPosition.x > 1 || viewportPosition.y < 0 || viewportPosition.y > 1)
         {
-            Debug.Log("Le projectile est en dehors de l'écran!");
+            //Debug.Log("Le projectile est en dehors de l'écran!");
             Destroy(gameObject);
         }
     }

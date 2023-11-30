@@ -3,12 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class UIManager : MonoBehaviour
 {
 
     [SerializeField] private CanvasRenderer gameOverPanel;
     [SerializeField] private CanvasRenderer newGamePanel;
     [SerializeField] private CanvasRenderer youWinPanel;
+    [SerializeField] private CanvasRenderer scorePanel;
+    [SerializeField] private TextMeshProUGUI scoreField;
+
+    private int globalScrore = 0;
+
+    public void OnTrashDestroyed(int score)
+    {
+        Debug.Log("OnTrashDestroyed triggered");
+        DisplayScore(score);
+    }
+        
 
     public void DisplayGameOverPanel(bool visible)
     {
@@ -28,9 +40,11 @@ public class UIManager : MonoBehaviour
     }
 
 
-    public void DisplayScorePanel(bool visible)
+    public void DisplayScore(int score)
     {
-        //TODO
+        globalScrore += score;
+        scoreField.text = "Score : " + globalScrore;
+            Debug.Log("Score : "+ globalScrore);
     }
 
     public void Replay()

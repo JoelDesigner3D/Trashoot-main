@@ -21,6 +21,8 @@ public class TimeManager : MonoBehaviour
 
     public static TimeManager Instance;
 
+    public IntEvent OnNewScore;
+
     void Awake()
     {
         if (Instance == null)
