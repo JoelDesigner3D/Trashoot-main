@@ -46,8 +46,7 @@ public class TrashController : MonoBehaviour, iExplosive
 
         newExplosion.Play();
 
-
-
         gameObject.SetActive(false);
+        //Destroy(gameObject, 2); 
     }
 }

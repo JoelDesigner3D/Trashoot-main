@@ -10,7 +10,8 @@ public class BulletController : MonoBehaviour, iExplosive
 
     public void Explode()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     public void Fire()
@@ -33,7 +34,6 @@ public class BulletController : MonoBehaviour, iExplosive
         {
             Debug.Log("Le projectile est en dehors de l'écran!");
             Destroy(gameObject);
-            // TODO respawn
         }
     }
 

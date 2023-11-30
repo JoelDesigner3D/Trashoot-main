@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrashPooling : Pool
 
 {
-    [SerializeField] TrashFactory trashGenerator;
+    [SerializeField] TrashGenerator trashGenerator;
 
     private List<GameObject> trashsReferences;
 
@@ -19,7 +19,7 @@ public class TrashPooling : Pool
     public override GameObject Get(Vector2 position)
     {
         
-        // Vérifier si une  est disponible
+        // Vérifier si une instance est disponible
         
         foreach (GameObject go in trashsReferences)
         {

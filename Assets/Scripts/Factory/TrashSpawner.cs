@@ -9,6 +9,8 @@ public class TrashSpawner : MonoBehaviour
     [SerializeField] TrashGenerator trashGenerator;
     [SerializeField] List<GameObject> trashPrefabs;
 
+    
+    /*
     void Start()
     {
         for (int i = 0; i < spawnPoints.Count; i++)
@@ -16,10 +18,13 @@ public class TrashSpawner : MonoBehaviour
             int RandomNumber = Random.Range(0, spawnPoints.Count);
 
             //trashGenerator.Generate(spawnPoints[RandomNumber].transform.position, Quaternion.identity);
-            _ = trashPooling.Get(spawnPoints[RandomNumber].transform.position);
+            trashPooling.Get(spawnPoints[RandomNumber].transform.position);
 
         }
     }
+    */
+
+    
 
     void Update()
     {
