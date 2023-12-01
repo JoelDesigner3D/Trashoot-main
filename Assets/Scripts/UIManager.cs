@@ -12,7 +12,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private CanvasRenderer youWinPanel;
     [SerializeField] private CanvasRenderer scorePanel;
     [SerializeField] private TextMeshProUGUI scoreField;
-        
+
+    public void Initialize(TextMeshProUGUI _scoreField)
+    {
+        scoreField = _scoreField;
+    }
+
 
     public void DisplayGameOverPanel(bool visible)
     {

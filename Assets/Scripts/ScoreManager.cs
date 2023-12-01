@@ -25,6 +25,11 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] private UIManager uiManager;
 
+    public void Initialize(UIManager _uiManager)
+    {
+        uiManager = _uiManager;
+    }
+
     public void OnTrashDestroyed(int score)
     {
         Debug.Log("OnTrashDestroyed triggered");
@@ -33,8 +38,14 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int score)
     {
-        globalScore += score;
-        uiManager.DisplayScore(globalScore);
+        GlobalScore += score;
+        uiManager.DisplayScore(GlobalScore);
     }
+
+    // accessors
+
+    public int GlobalScore { get => globalScore; set => globalScore = value; }
+
+
 
 }

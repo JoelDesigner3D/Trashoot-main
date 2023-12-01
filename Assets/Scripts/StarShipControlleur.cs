@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TestTools;
 
 public class StarShipControlleur : MonoBehaviour, iMovable, iShooter, iExplosive
 {
@@ -14,6 +15,12 @@ public class StarShipControlleur : MonoBehaviour, iMovable, iShooter, iExplosive
    // [SerializeField] private AudioSource bigExplosion;
 
     private bool readyForShoot = true;
+
+    public void Initialize(float _moveSpeed)
+    {
+        moveSpeed = _moveSpeed;
+    }
+
 
     public void Explode()
     {
