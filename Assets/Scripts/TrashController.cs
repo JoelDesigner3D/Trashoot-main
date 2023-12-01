@@ -15,7 +15,6 @@ public class TrashController : MonoBehaviour, iExplosive
     [SerializeField] private float forceMagnitude = 1f;
 
     [SerializeField] private ParticleSystem explosionParticles;
-    //[SerializeField] private AudioSource explosionSound;
 
     public IntEvent OnTrashDestroyed;
 
